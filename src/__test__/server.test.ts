@@ -8,3 +8,10 @@ describe(" GET /", ()=> {
         expect (res.status).toBe(200);
     });
 });
+
+describe(" Tasks data file exists", () => {
+    it("should confirm that tasks.json file exists", async () => {
+        const res = await request(app).get("/tasks");
+        expect(res.status).toBe(200);
+    })
+})

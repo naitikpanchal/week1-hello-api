@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
-import tasklist from "../data/tasks.json";
+import { loadTasks, saveTasks } from "../utils/fileStorage";
+// import tasklist from "../data/tasks.json";
 
 export interface Task {
     id: number;
@@ -7,7 +8,7 @@ export interface Task {
     completed: boolean;
 }
 
-const tasks: Task[] = tasklist;
+const tasks: Task[] = loadTasks();
 
 export const getTasks = (req: Request, res: Response) => {
     res.json(tasks);
@@ -43,6 +44,7 @@ export const createTask = (req: Request, res: Response) => {
         completed: false
     };
     tasks.push(newTask);
+    saveTasks(tasks);
     res.status(201).json(newTask);
 };
 
@@ -60,6 +62,7 @@ export const updateTask = (req: Request, res: Response) => {
     const { title, completed } = req.body;
     if(title) task.title = title;
     if(typeof completed === "boolean") task.completed = completed;
+    saveTasks(tasks);
 
     res.status(200).json(task);
 }
@@ -76,5 +79,6 @@ export const deleteTask = (req: Request, res: Response) => {
         return;
     }
     tasks.splice(taskIndex, 1);
+    saveTasks(tasks);
     res.status(204).send({"message": "Task deleted successfully"});
 };
