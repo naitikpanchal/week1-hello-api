@@ -1,6 +1,6 @@
 import { describe, it, expect, test } from 'vitest';
 import { HealthResponse } from '../controllers/healthController';
-import { Request, Response } from 'express';
+// import { Request, Response } from 'express';
 
 describe('Health controller Check', () => {
     it('should return status ok and uptime', () => {
