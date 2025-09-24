@@ -220,5 +220,6 @@ git push -u origin feat/some-feature
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![Vitest](https://img.shields.io/badge/Vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=white)
 ![Zod](https://img.shields.io/badge/Zod-3E67B1?style=for-the-badge&logo=zod&logoColor=white)
+![CI](https://github.com/naitikpanchal/week1-hello-api/actions/workflows/ci.yml/badge.svg)
 
 ---
