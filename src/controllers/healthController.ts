@@ -1,9 +1,9 @@
-import { Request, Response } from "express";
+import { Request, Response } from 'express';
 
 export interface HealthResponse {
-    status: string;
-    uptime: number;
-    timestamp: string;
+  status: string;
+  uptime: number;
+  timestamp: string;
 }
 
 // export const healthCheck: HealthResponse = {
@@ -13,10 +13,10 @@ export interface HealthResponse {
 // }
 
 export const healthCheck = (req: Request, res: Response) => {
-    const response: HealthResponse = {
-        status: "ok",
-        uptime: process.uptime(),
-        timestamp: new Date().toISOString()
-    };
-    res.json(response);
+  const response: HealthResponse = {
+    status: 'ok',
+    uptime: process.uptime(),
+    timestamp: new Date().toISOString(),
+  };
+  res.json(response);
 };

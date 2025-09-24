@@ -1,6 +1,6 @@
-import { Router } from "express";
-import { healthCheck } from "../controllers/healthController";
-import taskRouter from "./task";
+import { Router } from 'express';
+import { healthCheck } from '../controllers/healthController';
+import taskRouter from './task';
 
 const router = Router();
 // router.get('/health', (req, res) => {
@@ -16,6 +16,5 @@ const router = Router();
 
 router.get('/health', healthCheck);
 router.use('/tasks', taskRouter);
-
 
 export default router;

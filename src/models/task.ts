@@ -1,9 +1,9 @@
 export interface Task {
-    id: number;
-    title: string;
-    completed: boolean;
+  id: number;
+  title: string;
+  completed: boolean;
 }
 export interface TaskPayload {
-    title: string;
-    completed?: boolean;
+  title: string;
+  completed?: boolean;
 }
