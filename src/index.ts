@@ -20,9 +20,10 @@ app.get('/', (req, res) => {
 const log = (message: string) => {
   console.log(`[${new Date().toUTCString()}] ${message}`);
 };
-
-app.listen(PORT, () => {
-  log(`Server is running on http://localhost:${PORT}`);
-});
-
 export default app;
+
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => {
+    log(`Server is running on http://localhost:${PORT}`);
+  });
+}
