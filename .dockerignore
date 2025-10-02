@@ -1,0 +1,37 @@
+# Ignore build output directories
+dist
+build
+*.log
+.DS_Store
+# Ignore node modules (reinstalled inside container)
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Ignore local environment files
+.env
+.env.*
+
+# Ignore Docker-related files (not needed inside container)
+.dockerignore
+Dockerfile
+
+# Ignore git files
+.git
+.gitignore
+
+# Ignore GitHub workflows (CI/CD config, not needed in container)
+.github
+
+# Ignore test files (not needed in production image)
+src/__test__
+
+# Ignore docs and local db files (not needed in container runtime)
+docs
+db
+
+# Ignore build cache and typescript artifacts
+tsconfig.tsbuildinfo
+
+# Ignore editor/IDE configs
+.vscode
