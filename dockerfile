@@ -13,7 +13,11 @@ RUN addgroup --system appgroup && adduser --system --ingroup appgroup appuser
 
 WORKDIR /app
 ENV NODE_ENV=production
+
+# Copying built files and necessary resources from the builder stage, also static assets files need to be copied
+# Setting ownership to the non-root user
 COPY --from=builder --chown=appuser:appgroup /app/dist ./dist
+COPY --from=builder --chown=appuser:appgroup /app/src/data ./dist/data
 COPY --from=builder --chown=appuser:appgroup /app/package*.json ./
 RUN npm ci --omit=dev
 
