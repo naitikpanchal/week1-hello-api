@@ -12,7 +12,7 @@ export const logRequest = (req: Request, res: Response, next: NextFunction) => {
     const duration = Date.now() - start;
     logger.info({
       method: req.method,
-      url: req.url,
+      url: req.baseUrl + req.path,
       statusCode: res.statusCode,
       duration,
     });
