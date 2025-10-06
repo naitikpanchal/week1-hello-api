@@ -1,13 +1,13 @@
 import { z } from 'zod';
 
-const encSchema = z.object({
+const envSchema = z.object({
   PORT: z.string().transform((val = '3000') => parseInt(val, 10)),
   DATABASE_URL: z.string(),
   JWT_SECRET: z.string(),
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
 });
 
-const parsedEnv = encSchema.safeParse(process.env);
+const parsedEnv = envSchema.safeParse(process.env);
 
 if (!parsedEnv.success) {
   console.error('Invalid environment variables:', z.treeifyError(parsedEnv.error));
