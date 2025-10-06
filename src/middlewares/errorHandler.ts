@@ -1,8 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { ZodError } from 'zod';
 
-export function errorHandler(err: ZodError, req: Request, res: Response, _next: NextFunction) 
-{
+export function errorHandler(err: ZodError, req: Request, res: Response, _next: NextFunction) {
   if (err?.issues) {
     return res.status(400).json({ error: err.issues });
   }
